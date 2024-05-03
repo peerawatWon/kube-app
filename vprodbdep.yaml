@@ -16,9 +16,10 @@ spec:
     spec:
       containers:
         - name: vprodb
-          image: vprofile/vprofiledb:V1
-          #          args:
-#            - "--ignore-db-dir=lost+found"
+          image: vprofile/vprofiledb
+            #args:
+            #- "--ignore-db-dir"
+          #- "lost+found"
           volumeMounts:
             - mountPath: /var/lib/mysql
               name: vpro-db-data
@@ -36,7 +37,7 @@ spec:
       volumes:
         - name: vpro-db-data
           awsElasticBlockStore:
-            volumeID: vol-07b7706e0c0993ba4
+            volumeID: vol-0358435d787d8886f
             fsType: ext4
 
       initContainers:
